@@ -80,10 +80,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ldy',
-        'HOST': '124.222.118.135',
+        'HOST': '',
         'USER': 'root',
         'POST': '3306',
-        'PASSWORD': 'team2111.'
+        'PASSWORD': ''
     }
 }
 
