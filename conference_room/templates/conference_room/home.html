@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智能会议室系统</title>
+  <link rel="stylesheet" href="{% static 'conference_room/comment.css'%}">
+  <link rel="stylesheet" href="{% static 'conference_room/navigation.css'%}">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <div class="top">
+    <div class="wrapper">
+      <div class="logo">
+        <!-- 首页 -->
+        <h1><a href="#">智能会议室管理系统</a></h1>
+      </div>
+      <div class="middle">
+        <div class="txt">
+          <span class="title"><a href="#" class="active">首页</a></span>
+        </div>
+        <div class="txt">
+          <span class="title"><a href="#">敬请期待</a></span>
+        </div>
+        <div class="txt">
+          <span class="title"><a href="#">敬请期待</a></span>
+        </div>
+        <div class="txt">
+          <span class="title"><a href="#">敬请期待</a></span>
+        </div>
+      </div>
+      <div class="right">
+        <!-- 管理员入口 -->
+        <span class="manager"><a href="http://101.43.156.219/conference_room/manager_login/">管理入口</a></span>
+        <!-- 会议主持人入口 -->
+        <div class="host"><a href="http://101.43.156.219/conference_room/compere_login/">登录</a></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

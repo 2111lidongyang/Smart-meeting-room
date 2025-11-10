@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <h2>摄像头画面</h2>
+        {% if error %}
+            <p>{{ error }}</p>
+        {% else %}
+            <img src="data:image/jpeg;base64,{{ image|b64encode }}" width="100%">
+        {% endif %}
+    </div>
+    <div class="col-md-6">
+        <h2>拍照</h2>
+        <form method="post" action="{% url 'take_photo' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">拍照</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

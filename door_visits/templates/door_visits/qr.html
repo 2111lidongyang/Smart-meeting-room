@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>二维码识别</title>
+  <style>
+    #overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+        }
+        
+    #image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+
+    #position {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+
+  </style>
+</head>
+<body>
+  <div id="overlay"></div>
+    用户名：{{ user_name }}
+  <img id="image" src="{{ image_url }}" alt="Image">
+  <form method="post">
+    <button type="submit" id="position">刷新二维码</button>
+  </form>
+    <script>
+        // 获取图片元素和遮盖层元素
+        const image = document.getElementById('image');
+        const overlay = document.getElementById('overlay');
+        
+        // 点击图片时刷新图片
+        image.addEventListener('click', function() {
+        image.src = image.src + '?timestamp=' + new Date().getTime();
+        });
+        
+        // 鼠标移入时显示遮盖层
+        image.addEventListener('mouseover', function() {
+            overlay.style.display = 'block';
+        });
+        
+        // 鼠标移出时隐藏遮盖层
+        image.addEventListener('mouseout', function() {
+            overlay.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

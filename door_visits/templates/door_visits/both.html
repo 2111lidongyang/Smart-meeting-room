@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>二维码验证</title>
+  <link rel="stylesheet" href="{% static 'door_visits/index.css' %}">
+  <link rel="stylesheet" href="{% static 'door_visits/iconfont.css' %}">
+</head>
+<body>
+  <!-- 头部 -->
+  <header>
+    <a href="#" class="back"><span class="iconfont icon-left"></span></a>
+    <h3>个人二维码</h3>
+    <a href="#" class="note">访问纪录</a>
+  </header>
+
+  <!-- banner -->
+  <div class="banner">
+    <img src="{{ image_url }}" alt="二维码图片">
+    <p>有效时间<span>20s</span></p>
+  </div>
+
+  <!-- 问诊类型 -->
+  <div class="type">
+    <ul>
+      <li>
+        <a href="#">
+        <div class="pic">
+          <img src="{% static 'door_visits/type.jpg' %}" alt="">
+        </div>
+        <div class="txt">
+          <h4>用户信息</h4>
+          <p>{{ user_name }}</p>
+        </div>
+        <span class="iconfont icon-right"></span>
+        </a>        
+      </li>
+      <li>
+        <a href="http://101.43.156.219/door_visits/update/{{ user_name }}">
+        <div class="pic">
+          <img src="{% static 'door_visits/type2.jpg' %}" alt="">
+        </div>
+        <div class="txt">
+          <h4>二维码失效</h4>
+          <p>点击刷新二维码</p>
+        </div>
+        <span class="iconfont icon-right"></span>
+        </a>        
+      </li>
+    </ul>
+  </div>
+  <script src="{% static 'door_visits/flexible.js' %}"></script>
+</body>
+</html>

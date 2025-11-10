@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拍照上传</title>
+</head>
+<body>
+    <video id="video" width="640" height="480" autoplay></video>
+    <button id="snap">拍照</button>
+    <form id="upload-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*">
+        <button type="submit">上传</button>
+    </form>
+
+    <script>
+        const video = document.getElementById('video');
+        const snapButton = document.getElementById('snap');
+        const uploadForm = document.getElementById('upload-form');
+        const canvas = document.createElement('canvas');
+	canvas.width = 640;
+	canvas.height = 480;
+	document.body.appendChild(canvas);
+	const context = canvas.getContext('2d');
+
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                })
+                .catch(function (error) {
+                    console.error("无法访问摄像头", error);
+                });
+        } else {
+            console.error("浏览器不支持访问摄像头");
+        }
+
+        snapButton.addEventListener('click', function () {
+            context.drawImage(video, 0, 0, 640, 480);
+            const imageData = canvas.toDataURL('image/png');
+            uploadForm.action = '/upload_image/';
+            uploadForm.method = 'POST';
+            uploadForm.appendChild(document.createElement('input')).setAttribute('type', 'hidden').setAttribute('name', 'image').setAttribute('value', imageData);
+            uploadForm.submit();
+        });
+    </script>
+</body>
+</html>

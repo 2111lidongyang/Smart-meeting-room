@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+body,
+ul,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, PingFangSC-Regular, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+img {
+  vertical-align: bottom;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  color: #333;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* 定义变量 */
+/* 头部 */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.4rem;
+  height: 1.17333333rem;
+  line-height: 1.17333333rem;
+}
+header h3 {
+  font-size: 0.45333333rem;
+}
+header .note {
+  font-size: 0.4rem;
+  color: #2cb5a5;
+}
+/* banner */
+.banner {
+  margin-top: 0.8rem;
+  margin-bottom: 0.90666667rem;
+  text-align: center;
+}
+.banner img {
+  margin-bottom: 0.48rem;
+  /* width: ; */
+  /* height: ; */
+}
+.banner p {
+  font-size: 0.42666667rem;
+}
+.banner p span {
+  color: #16c2a3;
+}
+/* 问诊类型 */
+.type {
+  padding: 0 0.4rem;
+}
+.type li {
+  margin-bottom: 0.4rem;
+  padding: 0 0.4rem;
+  height: 2.08rem;
+  border: 1px solid #ededed;
+  border-radius: 0.10666667rem;
+}
+.type li a {
+  display: flex;
+  align-items: center;
+  height: 2.08rem;
+}
+.type li a .txt {
+  text-align: center;
+  flex: 1;
+}
+.type li a .txt h4 {
+  font-size: 0.42666667rem;
+  color: #3c3e42;
+  line-height: 0.64rem;
+}
+.type li a .txt p {
+  font-size: 0.34666667rem;
+  color: #848484;
+}
+
+</style>
+<body>
+  <!-- 头部 -->
+  <header>
+    <h3>二维码</h3>
+    <a href="#" class="note">返回</a>
+  </header>
+
+  <!-- banner -->
+  <div class="banner">
+    <img id="image" src="{{ image_url }}" alt="Image">
+    <p>二维码有效时间<span>1分钟</span></p>
+  </div>
+
+  <!-- 问诊类型 -->
+  <div class="type">
+    <ul>
+      <li>
+        <a href="#">
+        <div class="txt">
+          <h4>用户信息</h4>
+          <p>{{ user_name }}</p>
+        </div>
+        </a>        
+      </li>
+      <li>
+        <a href="http://101.43.156.219/door_visits/update/{{ user_name }}">
+        <div class="txt">
+          <h4>刷新二维码</h4>
+        </div>
+        </a>        
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
